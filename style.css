@@ -1,0 +1,223 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #000000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    color: #1a1a1a;
+}
+
+.app-container {
+    width: 100%;
+    max-width: 1300px;
+    padding: 40px;
+}
+
+.card {
+    background: #ffffff;
+    border-radius: 32px;
+    display: flex;
+    overflow: hidden;
+    height: 750px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+}
+
+.visual-section {
+    flex: 1;
+    position: relative;
+    padding: 16px; /* give some padding so image doesn't touch the white card edge directly, or wait, in the design the image touches the card border. Actually in the reference, the left part is a solid color container that fills the corner. But wait, since our image already has the gradient, we can just make it fill the left side */
+}
+
+/* Let's refine the visual-section to make the image fill perfectly */
+.visual-section {
+    flex: 1;
+    position: relative;
+    padding: 16px;
+}
+
+.hero-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 20px;
+}
+
+.logo {
+    position: absolute;
+    top: 50px;
+    left: 50px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 20px;
+    z-index: 10;
+}
+
+.content-section {
+    flex: 1.1;
+    padding: 60px 80px;
+    display: flex;
+    flex-direction: column;
+    background: #ffffff;
+}
+
+.navigation {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 30px;
+    margin-bottom: 100px;
+}
+
+nav {
+    display: flex;
+    gap: 25px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #666;
+    font-weight: 500;
+    font-size: 14px;
+    transition: color 0.3s;
+}
+
+nav a:hover {
+    color: #1a1a1a;
+}
+
+.btn-primary {
+    background: #111111;
+    color: #ffffff;
+    text-decoration: none;
+    padding: 12px 24px;
+    border-radius: 30px;
+    font-weight: 600;
+    font-size: 14px;
+    transition: background 0.3s, transform 0.2s;
+}
+
+.btn-primary:hover {
+    background: #333333;
+    transform: translateY(-2px);
+}
+
+.main-content {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.headline {
+    font-size: 56px;
+    line-height: 1.1;
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    margin-bottom: 24px;
+    color: #111111;
+}
+
+.subheadline {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #666666;
+    max-width: 450px;
+}
+
+.stats-section {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    margin-top: 60px;
+}
+
+.stat-block {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.stat-icon {
+    width: 12px;
+    height: 12px;
+    border-radius: 4px;
+    margin-bottom: 8px;
+}
+
+.red-icon {
+    background: #ff4d4d;
+}
+
+.yellow-icon {
+    background: #ffcc00;
+}
+
+.stat-number {
+    font-size: 32px;
+    font-weight: 700;
+    color: #111111;
+}
+
+.stat-label {
+    font-size: 13px;
+    color: #888888;
+}
+
+.stat-divider {
+    width: 1px;
+    height: 60px;
+    background: #eaeaea;
+}
+
+/* Animations */
+.card {
+    animation: fadeIn 1s ease-out;
+}
+
+.headline {
+    animation: slideUp 0.8s ease-out 0.2s both;
+}
+
+.subheadline {
+    animation: slideUp 0.8s ease-out 0.4s both;
+}
+
+.stats-section {
+    animation: slideUp 0.8s ease-out 0.6s both;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.95); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes slideUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 1024px) {
+    .card {
+        flex-direction: column;
+        height: auto;
+    }
+    .visual-section {
+        height: 400px;
+    }
+    .content-section {
+        padding: 40px;
+    }
+    .headline {
+        font-size: 40px;
+    }
+}
